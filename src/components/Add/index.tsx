@@ -7,7 +7,7 @@ interface IProps {
   add:(param:string)=>void
 }
  const Add:React.FC<IProps> = props => {
-    const { add} = props
+    const { add } = props
     const [value, setValue] = useState<string>('')
     const refButton = useRef<any>()
     const onChange = (e: any) => {
@@ -33,4 +33,5 @@ interface IProps {
     </div>
     );
   }
+
 export default Add
