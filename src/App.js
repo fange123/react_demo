@@ -1,8 +1,8 @@
-import styles from './App.less';
+import './App.less';
 
 function App() {
   return (
-    <div className={styles.app}>
+    <div className='app'>
      aaaaa
     </div>
   );
