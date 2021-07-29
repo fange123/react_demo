@@ -1,12 +1,17 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './App.less';
+import { Provider } from 'react-redux'
+import store from './store/index'
 import {List} from './components'
 
 const App  = (props:any) =>{
+
   return (
-    <div className='app'>
-    <List>我是列表哈哈哈哈</List>
-    </div>
+    <Provider store={store}>
+      <div className='app'>
+      <List>我是列表哈哈哈哈</List>
+      </div>
+    </Provider>
   );
 }
 

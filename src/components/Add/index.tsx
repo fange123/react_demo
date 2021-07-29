@@ -17,9 +17,9 @@ interface IProps {
     const handleAdd = ()=> {
       add(value)
       //让表单获取焦点
-      console.log(refButton.current.focus());
-
       refButton.current.focus()
+      //清空表单
+      setValue('')
     }
     //添加回车事件
     const handleKeyDown = (e:any) => {

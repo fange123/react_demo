@@ -1,4 +1,6 @@
 import React from "react";
+import {Modal} from 'antd'
+import { ExclamationCircleOutlined } from '@ant-design/icons';
 import './index.less'
 
 export interface IUsers {
@@ -8,10 +10,26 @@ interface IProps {
   users:IUsers
   handleDeleteOne:(id:number)=>void
 }
+const {confirm}  = Modal
+
 const User:React.FC<IProps> = props => {
   const {handleDeleteOne} = props
   const handleDelete = (id:number)=> {
-    handleDeleteOne(id)
+
+    confirm({
+      title: 'Are you sure delete this task?',
+      icon: <ExclamationCircleOutlined />,
+      okText: 'Yes',
+      okType: 'danger',
+      cancelText: 'No',
+      content: `确认删除${id}号吗`,
+      onOk:()=> {
+      handleDeleteOne(id)
+      },
+      onCancel() {
+        console.log('Cancel');
+      },
+    });
   }
     return (
       <tr style={{textAlign:'center'}}>

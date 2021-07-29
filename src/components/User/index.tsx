@@ -1,37 +1,52 @@
 import User, { IUsers } from './user'
 import "./index.less";
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import Add from '../Add';
+import { connect ,useDispatch} from 'react-redux';
+import { deleteAll, getUserList,addUserList ,deleteUserList} from './store/actionCreator';
+import { IUserList } from './store/reducer';
 
-interface IProps {
+interface IConnect {
+
+
+}
+
+interface IProps extends IConnect {
   children:ReactNode,
+  userList:IUserList[]
 
 }
 const  List:React.FC<IProps>  = props => {
-  const user =  [
-    { id: 1, name: "后盾人", age: 18 },
-    { id: 2, name: "向军大叔", age: 19 }
-  ]
-  const [users, setUsers] = useState<IUsers[]>(user)
-  const handleDelete = () => setUsers([])
-  const add = (param:string )=> {
-    const info = param.split('@')
-    const newUser = {
-      id:users.length + 1,
-      name:info[0],
-      age:info[1]
-    }
-    setUsers([...users,newUser])
-  }
-  const handleDeleteOne = (id:number) => {
-    setUsers(users.filter(item => item.id !== id))
+  const { userList } = props
 
+ const dispatch = useDispatch()
+
+  const [users, setUsers] = useState<IUsers[]>(userList)
+  useEffect(() => {
+    dispatch(getUserList())
+
+  }, [])
+const handleDelete = () => {
+  dispatch(deleteAll())
+}
+
+  useEffect(() => {
+    setUsers(userList)
+
+  }, [userList])
+
+  const deleteOne = (id:number) => {
+    dispatch(deleteUserList(id))
+  }
+
+  const addUser = (params:any) => {
+    dispatch(addUserList(params))
   }
 
 
     return (
        <>
-       <Add add = {add} users={users} />
+       <Add add = {addUser} users={users} />
         <table className='table'>
           <caption>{props.children}</caption>
           <thead>
@@ -42,7 +57,7 @@ const  List:React.FC<IProps>  = props => {
               <th>操作</th>
             </tr>
            {
-             users.map(item => <User key={item.id} users={item} handleDeleteOne={handleDeleteOne}/>)
+             users.map(item => <User key={item.id} users={item} handleDeleteOne={deleteOne}/>)
            }
           </thead>
         </table>
@@ -53,4 +68,11 @@ const  List:React.FC<IProps>  = props => {
        </>
     );
 }
-export default List
+const mapStateToProps = (state:any) => {
+
+  return {
+    userList:state.user?.userList
+  }
+}
+
+export default connect(mapStateToProps)(List)
