@@ -4,13 +4,14 @@ import { Provider } from "react-redux";
 import store from "./store/index";
 // import { List } from "./components";
 // import Count from "function/Count";
-import MyDemoContext from "./demo/useContext";
+// import MyDemoContext from "./demo/useContext";
+import MyDemoForm from "./demo/useForm";
 
 const App = (props: any) => {
   return (
     <Provider store={store}>
       <div className='app'>
-        <MyDemoContext />
+        <MyDemoForm />
         {/* <List>我是列表哈哈哈哈</List> */}
       </div>
     </Provider>
