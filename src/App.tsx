@@ -5,7 +5,7 @@ import store from "./store/index";
 // import { List } from "./components";
 // import Count from "function/Count";
 // import MyDemoContext from "./demo/useContext";
-import MyDemo from "./demo/useAntdTable";
+import MyDemo from "./demo/waterBoiling";
 
 const App = (props: any) => {
   return (
