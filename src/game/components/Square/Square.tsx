@@ -3,7 +3,6 @@ import { ISquareValue } from "../Board/Board";
 
 interface IProps {
   value: ISquareValue;
-  xIsNext: boolean;
   onClick: (value: any) => void;
 }
 

@@ -5,13 +5,13 @@ import store from "./store/index";
 // import { List } from "./components";
 // import Count from "function/Count";
 // import MyDemoContext from "./demo/useContext";
-import MyGame from "./game";
+import MyUpload from "./game";
 
 const App = (props: any) => {
   return (
     <Provider store={store}>
       <div className='app'>
-        <MyGame />
+        <MyUpload />
         {/* <List>我是列表哈哈哈哈</List> */}
       </div>
     </Provider>

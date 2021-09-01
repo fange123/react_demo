@@ -12,14 +12,12 @@ const Board: React.FC<IProps> = () => {
 
   const [xIsNext, setXIsNext] = useState<boolean>(true);
   const renderSquare = (i: number) => (
-    <Square
-      value={squareValue[i]}
-      xIsNext={xIsNext}
-      onClick={() => handleClick(i)}
-    />
+    <Square value={squareValue[i]} onClick={() => handleClick(i)} />
   );
   const handleClick = (i: number) => {
     const newArr = squareValue.slice();
+    console.log(newArr);
+
     if (calculateWinner(newArr) || newArr[i]) {
       return;
     }
@@ -66,12 +64,12 @@ const Board: React.FC<IProps> = () => {
         <div className='div1'> {renderSquare(0)}</div>
         <div className='div2'> {renderSquare(1)}</div>
         <div className='div3'> {renderSquare(2)}</div>
-        <div className='div4'>{renderSquare(3)} </div>
+        <div className='div4'> {renderSquare(3)} </div>
         <div className='div5'> {renderSquare(4)}</div>
         <div className='div6'> {renderSquare(5)}</div>
         <div className='div7'> {renderSquare(6)}</div>
         <div className='div8'> {renderSquare(7)}</div>
-        <div className='div9'>{renderSquare(8)} </div>
+        <div className='div9'> {renderSquare(8)} </div>
       </div>
     </>
   );
