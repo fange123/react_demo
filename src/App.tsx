@@ -5,7 +5,7 @@ import store from "./store/index";
 // import { List } from "./components";
 // import Count from "function/Count";
 // import MyDemoContext from "./demo/useContext";
-import Demo from "./hoc";
+import Demo from "./hocContext";
 
 const App = (props: any) => {
   return (
