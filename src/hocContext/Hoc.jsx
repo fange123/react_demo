@@ -7,10 +7,10 @@ const Hoc = WrapComponent => {
     <div>
       <h2>哈哈哈哈哈</h2>
        <UseContext.Consumer>
-{
-  user=><WrapComponent {...user}/>
-}
-  </UseContext.Consumer>
+          {
+            user=><WrapComponent {...user}/>
+          }
+      </UseContext.Consumer>
     </div>
   )
 }
