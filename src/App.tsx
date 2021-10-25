@@ -2,10 +2,11 @@ import React from "react";
 import "./App.less";
 import { Provider } from "react-redux";
 import store from "./store/index";
+import "antd/dist/antd.css";
 // import { List } from "./components";
 // import Count from "function/Count";
 // import MyDemoContext from "./demo/useContext";
-import Demo from "./hocRender";
+import Demo from "./comments";
 
 const App = (props: any) => {
   return (

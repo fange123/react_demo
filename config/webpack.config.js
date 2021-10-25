@@ -535,25 +535,30 @@ module.exports = function (webpackEnv) {
                 "sass-loader"
               ),
             },
+
             {
               test: lessRegex,
-              exclude: lessModuleRegex,
+              exclude: sassModuleRegex,
               use: getStyleLoaders(
                 {
-                  importLoaders: 1, // 值是1
-                  modules: true, // 增加这个可以通过模块方式来访问css
+                  importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                 },
                 "less-loader"
               ),
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
             },
-            // 这个测试删了也不影响
+            // Adds support for CSS Modules, but using SASS
+            // using the extension .module.scss or .module.sass
             {
               test: lessModuleRegex,
               use: getStyleLoaders(
                 {
-                  importLoaders: 1,
+                  importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
                   modules: true,
                   getLocalIdent: getCSSModuleLocalIdent,
