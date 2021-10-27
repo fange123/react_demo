@@ -18,6 +18,7 @@ request.interceptors.request.use(
     //+ 3.发送的数据需要进行序列化处理过程
 
     console.log("请求被拦截");
+
     return config;
   },
   (err) => {

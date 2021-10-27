@@ -14,7 +14,7 @@ componentDidMount(){
     }
   }).then(res=>{
     // @ts-ignore
-    this.setState({username:res.args.username+'我爱你'})
+    this.setState({ username:'亲爱的'+res.args.username+'我爱你'})
     message.success('success')
 
   }).catch(err=> {

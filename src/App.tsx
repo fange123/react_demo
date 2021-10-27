@@ -6,7 +6,7 @@ import "antd/dist/antd.css";
 // import { List } from "./components";
 // import Count from "function/Count";
 // import MyDemoContext from "./demo/useContext";
-import Demo from "./axios";
+import Demo from "./redux_js";
 
 const App = (props: any) => {
   return (
