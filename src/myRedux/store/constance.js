@@ -1,0 +1,3 @@
+export const ADD_TODO_ = "ADD_TODO";
+export const TOGGLE_TODO_ = "TOGGLE_TODO";
+export const SET_VISIBILITY_FILTER = "SET_VISIBILITY_FILTER";
