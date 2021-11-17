@@ -1,0 +1,44 @@
+@red: red;
+@blue: blue;
+@gray: #333;
+@pink: pink;
+@green: green;
+
+.classColor() {
+  spancolor: @red;
+  divcolor: @blue;
+  bordercolor: @gray;
+  bgcolor: @pink;
+  primary: @green;
+}
+
+.demo {
+  width: 100%;
+  color: @green;
+  padding: 20px;
+  background: .classColor[bgcolor];
+  .span {
+    font-size: 20px;
+    color: .classColor[spancolor];
+    .border_left();
+  }
+  .div {
+    font-size: 20px;
+    color: .classColor[divcolor];
+    .border_left();
+    cursor: pointer;
+    // display: none;
+    // opacity: 0;
+    // visibility: hidden; //看不见，但位置还站着
+  }
+  &::after {
+    content: "";
+    width: 100px;
+    height: 2px;
+    background: red;
+    display: inline-block;
+  }
+}
+.border_left {
+  border-left: 2px solid .classColor[bordercolor];
+}
